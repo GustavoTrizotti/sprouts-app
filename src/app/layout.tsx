@@ -1,13 +1,17 @@
-"use client";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/src/components/ui/sonner";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Metadata } from "next";
 
 const inter = Inter({
   weight: "400",
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  title: "Sprouts",
+};
 
 export default function RootLayout({
   children,
@@ -25,7 +29,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <div className="flex antialiased h-screen text-black dark:text-white bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-900 dark:to-zinc-950">
+              {children}
+            </div>
             <Toaster richColors />
           </ThemeProvider>
         </body>
